@@ -8,7 +8,7 @@ const minifyCSS = () =>
   gulp
     .src('src/**/*.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('build'))
 
 const minifyHTML = () =>
   gulp
@@ -23,6 +23,6 @@ const minifyHTML = () =>
         minifyJS: true,
       })
     )
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('build'))
 
 exports.default = parallel(minifyHTML, minifyCSS)
