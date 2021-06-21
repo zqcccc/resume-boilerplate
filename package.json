@@ -1,0 +1,29 @@
+{
+  "name": "resume-boilerplate",
+  "version": "1.0.0",
+  "description": "## 前言",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zqcccc/resume-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zqcccc/resume-boilerplate/issues"
+  },
+  "homepage": "https://github.com/zqcccc/resume-boilerplate#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-minifier": "^3.5.0"
+  },
+  "dependencies": {
+    "gulp-htmlmin": "^5.0.1"
+  }
+}
