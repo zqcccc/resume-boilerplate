@@ -4,6 +4,8 @@ const { series, parallel } = require('gulp')
 const htmlmin = require('gulp-htmlmin')
 const cleanCSS = require('gulp-clean-css')
 
+const copyPublic = () => gulp.src('public/**/*',{base:"./public"}).pipe(gulp.dest('build'))
+
 const minifyCSS = () =>
   gulp
     .src('src/**/*.css')
@@ -25,4 +27,4 @@ const minifyHTML = () =>
     )
     .pipe(gulp.dest('build'))
 
-exports.default = parallel(minifyHTML, minifyCSS)
+exports.default = parallel(copyPublic, minifyHTML, minifyCSS)
