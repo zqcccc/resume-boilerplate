@@ -1,3 +1,7 @@
+# fork 后的修改
+添加了 gulp 任务压缩 HTML 和 CSS，github action 自动部署
+cloudflare cdn 加速（老白嫖怪了） 
+
 # 如何写一份优秀的前端简历
 
 ## 前言
