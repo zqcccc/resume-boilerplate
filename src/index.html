@@ -44,6 +44,74 @@
         border-left: 5px solid #f8b62d;
         font-size: 18px;
       }
+      .tooltip {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: relative;
+        display: inline-block;
+      }
+      .tooltip button:hover, .tooltip button:focus {
+        border-color: #efb74d;
+        color: #efb74d;
+      }
+      @media (max-width: 576px) {
+        .tooltip {
+          opacity: 1;
+          width: auto;
+          height: auto;
+        }
+        .tooltip button {
+          border: 1px solid transparent;
+          box-shadow: 0 2px #00000004;
+          outline: 0;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          touch-action: manipulation;
+          height: 30px;
+          padding: 4px 15px;
+          font-size: 14px;
+          border-radius: 2px;
+          color: #000000d9;
+          border-color: #d9d9d9;
+          background: #fff;
+        }
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -75px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -55,13 +123,70 @@
         your experience.
       </p>
     <![endif]-->
-    <a href="https://github.com/zqcccc/resume-boilerplate">
+    <!-- <a href="https://github.com/zqcccc/resume-boilerplate">
       <img
         style="position: absolute; z-index: 5; top: 0; right: 0; border: 0"
         src="/img/fork.png"
         alt="Fork me on GitHub"
       />
-    </a>
+    </a> -->
+    <style>
+      #forkongithub {
+        position: fixed;
+        display: block;
+        right: 0;
+        bottom: 0;
+        width: 150px;
+        overflow: hidden;
+        height: 150px;
+        z-index: 999;
+      }
+      #forkongithub a {
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, sans-serif;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 40px;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        position: relative;
+        transition: 0.5s;
+        width: 250px;
+        position: absolute;
+        top: 80px;
+        left: -30px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+      }
+    
+      #forkongithub a:hover {
+        background: #c11;
+        color: #fff;
+      }
+    
+      #forkongithub a::before,
+      #forkongithub a::after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 1px;
+        left: 0;
+        height: 1px;
+        background: #fff;
+      }
+    
+      #forkongithub a::after {
+        bottom: 1px;
+        top: auto;
+      }
+    </style><div id="forkongithub"><a href="https://github.com/zqcccc/resume-boilerplate">Fork me on GitHub</a></div>
 
     <main class="page shadow-2">
       <section>
@@ -69,8 +194,15 @@
         <div class="boxes">
           <div class="box bg-gray-lightest p-y-0">
             <div class="row g-32">
-              <div class="col-4 p-y-8">● 手机/微信: 18186473895</div>
-              <div class="col-4 p-y-8">● Email：c9cu@qq.com</div>
+              <div class="col-4 p-y-8">● 手机/微信: <a id="my-phone" href="tel:+8618186473895">18186473895</a>
+                <div class="tooltip">
+                  <button onclick="myFunction()" onmouseout="outFunc()">
+                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                    Copy Phone
+                    </button>
+                  </div>
+              </div>
+              <div class="col-4 p-y-8">● Email：<a href= "mailto:c9cu@qq.com">c9cu@qq.com</a></div>
               <!-- <div class="col-4 p-y-8">● </div> -->
             </div>
           </div>
@@ -354,5 +486,22 @@
         <a href="https://github.com/snack-ui/snack" target="_blank">snack</a>
       </p>
     </footer>
+
+  <script>
+    function myFunction() {
+      var copyText = document.getElementById("my-phone");
+      // copyText.select();
+      // copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.innerHTML);
+      
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copied: " + copyText.innerHTML;
+    }
+    
+    function outFunc() {
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copy to clipboard";
+    }
+    </script>
   </body>
 </html>
