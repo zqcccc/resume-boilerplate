@@ -489,13 +489,22 @@
 
   <script>
     function myFunction() {
+      var selection = window.getSelection();
+      var range = document.createRange();
       var copyText = document.getElementById("my-phone");
+      var tooltip = document.getElementById("myTooltip");
+
+      range.selectNodeContents(copyText);
+      selection.removeAllRanges();
+      selection.addRange(range);
+
+      selectedText = selection.toString();
       // copyText.select();
       // copyText.setSelectionRange(0, 99999);
-      navigator.clipboard.writeText(copyText.innerHTML);
+      // navigator.clipboard.writeText(copyText.innerHTML);
+      document.execCommand('copy')
       
-      var tooltip = document.getElementById("myTooltip");
-      tooltip.innerHTML = "Copied: " + copyText.innerHTML;
+      tooltip.innerHTML = "Copied: " + selectedText;
     }
     
     function outFunc() {
