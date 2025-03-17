@@ -50,7 +50,6 @@
         width: 0;
         height: 0;
         position: relative;
-        display: inline-block;
       }
       .tooltip button:hover, .tooltip button:focus {
         border-color: #efb74d;
@@ -187,6 +186,12 @@
         bottom: 1px;
         top: auto;
       }
+      .flex {
+        display: flex;
+      }
+      .align-center {
+        align-items: center;
+      }
     </style><div id="forkongithub"><a href="https://github.com/zqcccc/resume-boilerplate">Fork me on GitHub</a></div>
 
     <main class="page shadow-2">
@@ -195,13 +200,13 @@
         <div class="boxes">
           <div class="box bg-gray-lightest p-y-0">
             <div class="row g-32">
-              <div class="col-4 p-y-8">● 手机/微信: <a id="my-phone" href="tel:+8618186473895">18186473895</a>
-                <div class="tooltip m-l-4">
+              <div class="col-4 p-y-8 flex align-center">● 手机/微信: <a id="my-phone" href="tel:+8618186473895">18186473895</a>
+                <a class="tooltip m-l-4">
                   <button onclick="myFunction()" onmouseout="outFunc()">
                     <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
                     Copy Phone
                     </button>
-                  </div>
+                  </a>
               </div>
               <div class="col-4 p-y-8">● Email：<a href= "mailto:c9cu@qq.com">c9cu@qq.com</a></div>
               <!-- <div class="col-4 p-y-8">● </div> -->
@@ -215,7 +220,7 @@
         <div class="boxes">
           <div class="box bg-gray-lightest p-y-0">
             <div class="row g-32">
-              <div class="col-4 p-y-8">● 应聘前端开发 | 4 年工作经验</div>
+              <div class="col-4 p-y-8">● 应聘前端开发 | 5 年工作经验</div>
               <div class="col-4 p-y-8">● 赵翘楚 | 男 | 1996</div>
               <div class="col-4 p-y-8">● 本科 | 软件工程</div>
             </div>
@@ -291,10 +296,14 @@
           </div>
           <div class="box bg-gray-lightest">
             <p>
-              - 负责公司产品前端开发，参与从原型设计到上线的全流程开发。
+              - 负责公司产品前端开发，全面参与了从原型设计到产品上线的各个阶段。
+            </p>
+            <p>- 积极参与了小程序的开发迭代，确保了产品的按时、高质量交付。
             </p>
             <p>- 参与项目国际化改造，支持多语言展示，提高产品适应国际市场的能力。</p>
           </div>
+        </div>
+        <div class="boxes">
           <div class="box bg-gray-lightest">
             ● 北京映客科技有限公司 （ 2020 年 11 月 ~ 2021 年 11 月 ）
           </div>
@@ -350,6 +359,18 @@
       <section>
       <h1>项目经历</h1>
       <div class="boxes">
+        <div class="box bg-gray-lightest">
+          ● 小冰 X Eva
+          <p>
+            <b>项目简介：</b>可以创建数字克隆人的一个 app，提供各种 AIGC 服务
+          </p>
+          <p>
+            - 主要使用 Uniapp 进行小程序的开发，并负责 X Eva 系列小程序的持续迭代。
+          </p>
+          <p>
+            - 参与了端内 app-plus 的迭代工作，与端上的团队成员紧密配合，共同推进开发进程，确保项目的顺利进行。
+          </p>
+        </div>
         <div class="box bg-gray-lightest">
           ● 小冰海外项目 Chararu
           <p>
