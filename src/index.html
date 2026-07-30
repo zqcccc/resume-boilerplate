@@ -1,576 +1,742 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <meta name="keywords" content="赵翘楚,前端,码农,简历,找工作,映客,拉勾,boss直聘,招聘,如何写简历,怎么写简历,简历生成" />
-    <meta name="description" content="前端工程师赵翘楚的个人工作简历，你也可以 fork 这个项目来生成你自己的简历网站" />
-    <title>Frontend - 赵翘楚</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="icon" href="favicon.ico" />
-    <link
-      href="https://cdn.bootcss.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="css/snack.css" />
-    <link rel="stylesheet" href="css/snack-helper.css" />
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-      html,
-      body {
-        background-color: #f5f5f5;
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赵翘楚 - 前端开发工程师</title>
+  <style>
+    /* ===== Print Page Setup ===== */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== Base Styles (print-first, also serves as screen fallback) ===== */
+    :root {
+      --color-heading: #0F172A;
+      --color-body: #000000;
+      --color-muted: #555;
+      --color-border: #e2e8f0;
+      --color-accent: #0F172A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Heiti SC", "STHeiti", sans-serif;
+      font-size: 10.5pt;
+      color: var(--color-body);
+      line-height: 1.5;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Page container — A4 dimensions for print */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14px 12px;
+      position: relative;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 6px;
+      padding-bottom: 6px;
+    }
+
+    .header .name {
+      font-size: 22.5pt;
+      font-weight: 700;
+      color: var(--color-heading);
+      letter-spacing: 2px;
+    }
+
+    .header .info {
+      font-size: 10.5pt;
+      color: var(--color-body);
+      margin-top: 6px;
+    }
+
+    .header .info span {
+      margin: 0 6px;
+      white-space: nowrap;
+    }
+
+    .header .info .sep {
+      color: #999;
+    }
+
+    /* ===== Section ===== */
+    .section {
+      margin-top: 12px;
+    }
+
+    .section-title {
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--color-heading);
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid var(--color-heading);
+      margin-bottom: 6px;
+    }
+
+    /* ===== Personal Summary ===== */
+    .summary-item {
+      margin-bottom: 3px;
+      line-height: 1.55;
+      text-align: justify;
+    }
+
+    .summary-item .label {
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    /* ===== Experience / Project Headers ===== */
+    .exp-header,
+    .proj-header,
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 1px;
+    }
+
+    .exp-company,
+    .proj-name,
+    .edu-school {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    .exp-date,
+    .proj-date,
+    .edu-date {
+      font-size: 10pt;
+      color: var(--color-muted);
+      white-space: nowrap;
+    }
+
+    .exp-role {
+      font-size: 10pt;
+      color: var(--color-muted);
+      margin-bottom: 3px;
+    }
+
+    /* ===== Bullet Lists ===== */
+    .exp-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .exp-list li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 2px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .exp-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .exp-list li .sub-label {
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    /* ===== Project Link ===== */
+    .proj-link {
+      font-size: 9.5pt;
+      color: var(--color-muted);
+      margin-bottom: 2px;
+      word-break: break-all;
+    }
+
+    .proj-link a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ===== Tech Stack ===== */
+    .tech-stack {
+      font-size: 10pt;
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    .tech-stack .ts-label {
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    /* ===== Skills Grid ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 20px;
+    }
+
+    .skill-row {
+      font-size: 10pt;
+      line-height: 1.6;
+    }
+
+    .skill-row .sk-label {
+      font-weight: 700;
+      color: var(--color-heading);
+    }
+
+    .skill-row.full {
+      grid-column: 1 / -1;
+    }
+
+    /* ===== Education ===== */
+    .edu-detail {
+      font-size: 10pt;
+      color: var(--color-muted);
+    }
+
+    /* ===== Experience Group Spacing ===== */
+    .exp-group + .exp-group {
+      margin-top: 8px;
+    }
+
+    /* ========================================
+       SCREEN-ONLY ENHANCEMENTS (blog display)
+       Does NOT affect PDF / print output
+       ======================================== */
+    @media screen {
+      :root {
+        --color-body: #1a1a2e;
+        --color-muted: #64748b;
+        --color-bg: #f8fafc;
+        --color-card: #ffffff;
       }
 
+      body {
+        font-size: 15px;
+        color: var(--color-body);
+        background: var(--color-bg);
+        line-height: 1.6;
+      }
+
+      /* Fluid layout instead of fixed A4 */
       .page {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #fff;
+        width: auto;
+        max-width: 820px;
+        min-height: auto;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .page-break {
+        page-break-before: auto;
+      }
+
+      /* Wrap pages in a centered container */
+      .resume-wrapper {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 32px 24px 48px;
+      }
+
+      /* Header */
+      .header {
+        margin-bottom: 28px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--color-heading);
+      }
+
+      .header .name {
+        font-size: 28px;
+        letter-spacing: 3px;
+      }
+
+      .header .info {
+        font-size: 14px;
+        color: var(--color-muted);
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 6px;
+      }
+
+      /* Section */
+      .section {
+        margin-top: 24px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        padding-bottom: 6px;
+        margin-bottom: 12px;
+      }
+
+      /* Summary cards */
+      .summary-item {
+        padding: 10px 14px;
+        margin-bottom: 10px;
+        background: var(--color-card);
+        border-radius: 10px;
+        border-left: 3px solid var(--color-accent);
+        line-height: 1.65;
+        transition: box-shadow 0.2s ease;
+      }
+
+      .summary-item:hover {
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+      }
+
+      /* Headers */
+      .exp-company,
+      .proj-name,
+      .edu-school {
+        font-size: 15px;
+      }
+
+      .exp-date,
+      .proj-date,
+      .edu-date {
+        font-size: 13px;
+      }
+
+      .exp-role {
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      /* Bullets */
+      .exp-list li {
+        padding-left: 16px;
+        margin-bottom: 6px;
+        line-height: 1.6;
+      }
+
+      .exp-list li::before {
+        top: 9px;
+        width: 5px;
+        height: 5px;
+      }
+
+      /* Project link */
+      .proj-link {
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+
+      .proj-link a:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
+
+      /* Tech stack */
+      .tech-stack {
+        font-size: 13px;
+        padding: 6px 12px;
+        background: var(--color-card);
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+
+      /* Skills */
+      .skill-row {
+        font-size: 13px;
+        line-height: 1.7;
+        padding: 6px 12px;
+        background: var(--color-card);
+        border-radius: 6px;
+      }
+
+      .skills-grid {
+        gap: 6px 20px;
+      }
+
+      .edu-detail {
+        font-size: 13px;
+      }
+
+      .exp-group + .exp-group {
+        margin-top: 16px;
+      }
+    }
+
+    /* ===== Tablet ===== */
+    @media screen and (max-width: 768px) {
+      .resume-wrapper {
+        padding: 24px 16px 36px;
+      }
+
+      .header .name {
+        font-size: 24px;
+      }
+
+      .header .info {
+        font-size: 13px;
+        gap: 3px 5px;
+      }
+
+      .section-title {
+        font-size: 17px;
+      }
+
+      .exp-company,
+      .proj-name,
+      .edu-school {
+        font-size: 14px;
+      }
+    }
+
+    /* ===== Mobile ===== */
+    @media screen and (max-width: 480px) {
+      .resume-wrapper {
+        padding: 20px 14px 32px;
+      }
+
+      .header {
+        margin-bottom: 20px;
+        padding-bottom: 14px;
+      }
+
+      .header .name {
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+
+      .header .info {
+        font-size: 12.5px;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+      }
+
+      .header .info .sep {
+        display: none;
+      }
+
+      .section {
+        margin-top: 20px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .summary-item {
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .exp-header,
+      .proj-header,
+      .edu-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .exp-date,
+      .proj-date,
+      .edu-date {
+        font-size: 12px;
+      }
+
+      .exp-company,
+      .proj-name,
+      .edu-school {
         font-size: 14px;
       }
 
-      h1 {
-        margin: 20px -20px 20px;
-        padding-left: 15px;
-        border-left: 5px solid #f8b62d;
-        font-size: 18px;
-      }
-      .tooltip {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        position: relative;
-      }
-      .tooltip button:hover, .tooltip button:focus {
-        border-color: #efb74d;
-        color: #efb74d;
-      }
-      @media (max-width: 576px) {
-        .tooltip {
-          opacity: 1;
-          width: auto;
-          height: auto;
-        }
-        .tooltip button {
-          border: 1px solid transparent;
-          box-shadow: 0 2px #00000004;
-          outline: 0;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-          touch-action: manipulation;
-          height: 30px;
-          padding: 4px 15px;
-          font-size: 14px;
-          border-radius: 4px;
-          color: #000000d9;
-          border-color: #d9d9d9;
-          background: #fff;
-        }
+      .exp-role {
+        font-size: 12px;
       }
 
-      .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 140px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 150%;
-        left: 50%;
-        margin-left: -75px;
-        opacity: 0;
-        transition: opacity 0.3s;
+      .exp-list li {
+        padding-left: 14px;
+        margin-bottom: 5px;
+        font-size: 13.5px;
+        line-height: 1.55;
       }
 
-      .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
+      .exp-list li::before {
+        top: 8px;
       }
 
-      .tooltip:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
+      .proj-link {
+        font-size: 12px;
       }
-    </style>
-  </head>
 
-  <body class="">
-    <!--[if lt IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-        your experience.
-      </p>
-    <![endif]-->
-    <!-- <a href="https://github.com/zqcccc/resume-boilerplate">
-      <img
-        style="position: absolute; z-index: 5; top: 0; right: 0; border: 0"
-        src="/img/fork.png"
-        alt="Fork me on GitHub"
-      />
-    </a> -->
-    <style>
-      #forkongithub {
-        position: fixed;
-        display: block;
-        right: 0;
-        bottom: 0;
-        width: 150px;
-        overflow: hidden;
-        height: 150px;
-        z-index: 999;
+      .tech-stack {
+        font-size: 12.5px;
+        padding: 5px 10px;
       }
-      #forkongithub a {
-        background: #000;
-        color: #fff;
-        text-decoration: none;
-        font-family: arial, sans-serif;
-        text-align: center;
-        font-weight: bold;
-        padding: 5px 40px;
-        font-size: 1rem;
-        line-height: 1.2rem;
-        position: relative;
-        transition: 0.5s;
-        width: 250px;
-        position: absolute;
-        top: 80px;
-        left: -30px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 4px;
       }
-    
-      #forkongithub a:hover {
-        background: #c11;
-        color: #fff;
+
+      .skill-row {
+        font-size: 12.5px;
+        padding: 5px 10px;
       }
-    
-      #forkongithub a::before,
-      #forkongithub a::after {
-        content: "";
-        width: 100%;
-        display: block;
-        position: absolute;
-        top: 1px;
-        left: 0;
-        height: 1px;
-        background: #fff;
+
+      .edu-detail {
+        font-size: 12.5px;
       }
-    
-      #forkongithub a::after {
-        bottom: 1px;
-        top: auto;
+
+      .exp-group + .exp-group {
+        margin-top: 14px;
       }
-      .flex {
-        display: flex;
-      }
-      .align-center {
-        align-items: center;
-      }
-    </style><div id="forkongithub"><a href="https://github.com/zqcccc/resume-boilerplate">Fork me on GitHub</a></div>
-
-    <main class="page shadow-2">
-      <section>
-        <h1>联系方式</h1>
-        <div class="boxes">
-          <div class="box bg-gray-lightest p-y-0">
-            <div class="row g-32">
-              <div class="col-4 p-y-8 flex align-center">● 手机/微信: <a id="my-phone" href="tel:+8618186473895">18186473895</a>
-                <a class="tooltip m-l-4">
-                  <button onclick="myFunction()" onmouseout="outFunc()">
-                    <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
-                    Copy Phone
-                    </button>
-                  </a>
-              </div>
-              <div class="col-4 p-y-8">● Email：<a href= "mailto:c9cu@qq.com">c9cu@qq.com</a></div>
-              <!-- <div class="col-4 p-y-8">● </div> -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h1>个人信息</h1>
-        <div class="boxes">
-          <div class="box bg-gray-lightest p-y-0">
-            <div class="row g-32">
-              <div class="col-4 p-y-8">● 应聘前端开发 | 5 年工作经验</div>
-              <div class="col-4 p-y-8">● 赵翘楚 | 男 | 1996</div>
-              <div class="col-4 p-y-8">● 本科 | 软件工程</div>
-            </div>
-          </div>
-          <div class="box bg-gray-lightest">
-            ● 技术博客：
-            <a
-              href="https://onlylike.work/"
-              target="_blank"
-              class="text-gray-dark"
-              >https://onlylike.work/</a
-            >
-          </div>
-          <div class="box bg-gray-lightest">
-            ● Github：
-            <a
-              href="https://github.com/zqcccc"
-              target="_blank"
-              class="text-gray-dark"
-              >https://github.com/zqcccc</a
-            >
-          </div>
-          <!-- <div class="box bg-gray-lightest">
-          ● 豆瓣读书：
-          <a href="https://book.douban.com/people/nzbin/" target="_blank"
-             class="text-gray-dark">https://book.douban.com/people/nzbin/</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● 社区活动：伯乐在线翻译组成员，定期翻译优秀文章
-        </div> -->
-        </div>
-      </section>
-
-      <section>
-        <h1>技术优势</h1>
-        <div class="boxes">
-          <div class="box bg-gray-lightest">
-            ● 具备扎实的前端开发技能，熟练掌握 React 技术栈，并且也有 Vue 技术栈的使用经验，能够迅速掌握并适应不同的前端技术栈，以满足各种项目需求
-          </div>
-          <div class="box bg-gray-lightest">
-            ● 热衷于应用技术和提升开发体验，具备良好的英文文档阅读能力，乐于和同事一起沟通探讨技术共同解决产品开发中的问题
-          </div>
-          <div class="box bg-gray-lightest">
-            ● 擅长快速识别开发中的问题并采取有效措施进行处理，了解 nest，具备一定程度的 node 开发能力
-          </div>
-          <!-- <div class="box bg-gray-lightest">● 熟悉前端工程化，熟悉函数式编程，熟悉 ES6+，熟悉 Promise，熟悉 Git 及其协同工作方法</div>
-          <div class="box bg-gray-lightest">
-            ● 具备良好的英文文档阅读能力，十分乐于和同事一起沟通探讨技术
-          </div>
-          <div class="box bg-gray-lightest">
-            ● 了解基本的网络和安全知识、前端测试、EventLoop
-          </div>
-          <div class="box bg-gray-lightest">
-            ● 了解使用 Vue 开发页面，主动学习过 Shell、Flutter、Gulp、Node.js 等技术
-          </div> -->
-        </div>
-      </section>
-
-
-      <section>
-        <h1>
-          工作经历
-          <!-- <a
-            href="https://github.com/geekcompany/ResumeSample/blob/master/web.md"
-            target="_blank"
-            class="f-w-100 text-gray-dark"
-            >ResumeSample</a
-          > -->
-        </h1>
-        <div class="boxes">
-          <div class="box bg-gray-lightest">
-            ● 北京小冰红棉科技有限公司（ 2022 年 1 月 ~ 至今 ）
-          </div>
-          <div class="box bg-gray-lightest">
-            <p>
-              - 负责公司产品前端开发，全面参与了从原型设计到产品上线的各个阶段。
-            </p>
-            <p>- 积极参与了小程序的开发迭代，确保了产品的按时、高质量交付。
-            </p>
-            <p>- 参与项目国际化改造，支持多语言展示，提高产品适应国际市场的能力。</p>
-          </div>
-        </div>
-        <div class="boxes">
-          <div class="box bg-gray-lightest">
-            ● 北京映客科技有限公司 （ 2020 年 11 月 ~ 2021 年 11 月 ）
-          </div>
-          <div class="box bg-gray-lightest">
-            <p>
-              - 作为主干负责 C 端的日常业务开发，跨多部门协作，保证了版本功能的迭代和质量
-            </p>
-            <p>- 输出公用组件的编写，日常优化项目架构，优化 webpack 配置，提升团队开发体验</p>
-            <p>- 为前端组从零开始搭建了 TS 的开发环境，在团队中推广 TS</p>
-            <p>- 协助 Leader 招聘</p>
-          </div>
-          <!-- <div class="box bg-gray-lightest">
-            <p class="m-t-0">GHI 项目</p>
-            <p>
-              我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-            </p>
-          </div>
-          <div class="box bg-gray-lightest">
-            <p class="m-t-0">其他项目</p>
-            <p>
-              （每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
-            </p>
-          </div> -->
-        </div>
-
-        <div class="boxes">
-          <div class="box bg-gray-lightest">
-            ● 杭州梦栖教育咨询有限公司（ 2019 年 7 月 ~ 2020 年 10 月 ）
-          </div>
-          <div class="box bg-gray-lightest">
-            <p>
-              - 作为主要的前端开发人员负责公司所有项目的前端页面的开发和维护
-            </p>
-            <p>
-              - 参与讨论和分析项目需求，与设计师沟通前端页面的设计稿的可行性和效率评估，与后端人员讨论数据交互的设计，对旧项目代码逻辑进行整理重构。
-            </p>
-          </div>
-          <!-- <div class="box bg-gray-lightest">
-            <p class="m-t-0">PQR 项目</p>
-            <p>
-              我在此项目负责了哪些工作，分别在哪些地方做得出色/和别人不一样/成长快，这个项目中，我最困难的问题是什么，我采取了什么措施，最后结果如何。这个项目中，我最自豪的技术细节是什么，为什么，实施前和实施后的数据对比如何，同事和领导对此的反应如何。
-            </p>
-          </div>
-          <div class="box bg-gray-lightest">
-            <p class="m-t-0">其他项目</p>
-            <p>
-              （每个公司写2~3个核心项目就好了，如果你有非常大量的项目，那么按分类进行合并，每一类选一个典型写出来。其他的一笔带过即可。）
-            </p>
-          </div> -->
-        </div>
-      </section>
-
-      <section>
-      <h1>项目经历</h1>
-      <div class="boxes">
-        <div class="box bg-gray-lightest">
-          ● 小冰 X Eva
-          <p>
-            <b>项目简介：</b>可以创建数字克隆人的一个 app，提供各种 AIGC 服务
-          </p>
-          <p>
-            - 主要使用 Uniapp 进行小程序的开发，并负责 X Eva 系列小程序的持续迭代。
-          </p>
-          <p>
-            - 参与了端内 app-plus 的迭代工作，优化了项目在 mac 上的打包插件，让上线流程更快。
-          </p>
-          <p>
-            - 与端上的团队成员紧密配合，共同推进开发进程，确保项目的顺利进行。
-          </p>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● 小冰海外项目 Chararu
-          <p>
-            <b>项目简介：</b>AI 聊天项目，作为前端开发工程师，负责日常功能迭代和优化。
-          </p>
-          <!-- <p>
-            <b>主要技术：</b>基于 CRA 对映客主板业务做了适配的 react 项目
-          </p> -->
-          <p>
-            - 在与后端工程师紧密合作的过程中，我负责编写页面逻辑，确保用户界面流畅且易于使用。
-          </p>
-          <p>
-            - 在项目进行国际化的过程中，我通过编写高效的脚本，自动替换项目代码中的语言，从而实现多语言支持。这一改进使得国际化工程的开发周期缩短了一周，提前完成了开发并成功上线。此举不仅提高了项目的执行效率，还为公司节省了大量的人力和时间成本
-          </p>
-        </div>
-      </div>
-
-      <div class="boxes">
-        <div class="box bg-gray-lightest">
-          ● 映客 APP 端内 H5
-          <p>
-            <b>项目简介：</b>在映客APP项目中，我负责开发和维护上百个功能页和玩法页，日PV总计超过80万。此外，我还参与了一个较早搭建的老项目，使用PHP、Vue和RN技术栈，包含微信公众号的落地页和端外的充值页与分享页。
-          </p>
-          <!-- <p>
-            <b>主要技术：</b>基于 CRA 对映客主板业务做了适配的 react 项目
-          </p> -->
-          <p>
-            - 在映客APP项目中，我使用基于CRA的React技术栈进行开发。通过在业务中沉淀通用组件，我成功提升了开发效率，使类似需求的开发时间缩短了一人1天以上。同时，我持续优化项目架构，优化webpack配置，提高了项目rebuild时间的80%以上。为了提高代码质量和稳定性，我引入了TypeScript开发，并重写了部分通用方法，使主要页面的JS报错率降低到0.02%以下。
-          </p>
-          <p>
-            - 在老项目中，面对有限的人力和技术栈更新的挑战，我重写了部分旧逻辑，优化了代码，并按时按质按量地开发了10+个页面，同时确保旧业务的正常使用。为了方便后续开发人员更好更快地维护旧项目，我还完善了旧项目的开发文档。
-          </p>
-        </div>
-        <!-- <div class="box bg-gray-lightest">
-          ● 映客 APP 旧项目的开发
-          <p>
-            <b>项目简介：</b>搭建时间很早PHP、Vue 和 RN 的老项目，其中包含微信公众号的落地页和端外的一些充值页和分享页，需要迭代新功能但并没有人力和机会重构到新的技术栈
-          </p>
-          <p>
-            - 重写部分旧逻辑，优化代码，并按时按质按量地开发了 10+ 个页面，并保证旧业务的正常使用
-          </p>
-          <p>
-            - 完善旧项目的开发文档，方便后续开发人员更好更快地维护旧项目
-          </p>
-        </div> -->
-        </div>
-
-        <div class="boxes">
-        <div class="box bg-gray-lightest">
-          ● 中胤设计商城 CMS 后台系统（梦栖教育）
-          <p>
-            <b>项目简介：</b>梦栖教育公司承接的外包项目，主要是做一个前后端分离的类商城项目及其后台管理，使用技术方案是 umi ( 内含 react、dva、ant design )
-          </p>
-          <p>
-            - 主要配合后端人员负责系统页面逻辑编写以及后期维护，修改了许多老系统的 bug，并提前完成了项目需求
-          </p>
-          <p>
-            - 应对多次修改的需求并重构删除原来上千行冗余代码，做到了提前完成开发并上线
-          </p>
-        </div>
-        <!-- <div class="box bg-gray-lightest">
-          ● domq（完美替换 jQuery 的模块化 DOM 库）：
-          <a href="https://github.com/nzbin/domq" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/domq</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● magnify（图片查看器插件 jQuery 版）：
-          <a href="https://github.com/nzbin/magnify" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/magnify</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● three-dots（单元素加载动画）：
-          <a href="https://github.com/nzbin/three-dots" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/three-dots</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● snack（轻量级 CSS 框架）：
-          <a href="https://github.com/nzbin/snack" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/snack</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● snack-helper（通用的 helper class）：
-          <a href="https://github.com/nzbin/snack-helper" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/snack-helper</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● memory-stake（数字记忆小程序）
-          <a href="https://github.com/nzbin/memory-stake" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/memory-stake</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ● CardShow（卡片式抽奖插件）：
-          <a href="https://github.com/nzbin/CardShow" target="_blank"
-             class="text-gray-dark">https://github.com/nzbin/CardShow</a>
-        </div> -->
-      </div>
-    </section>
-
-    <!-- <section>
-      <h1>技术文章</h1>
-      <div class="boxes">
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/9038154.html" target="_blank"
-             class="text-gray-dark">《浅谈 Checkbox Group 的双向数据绑定》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/11495417.html" target="_blank"
-             class="text-gray-dark">《代码美化的艺术》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/11424801.html" target="_blank"
-             class="text-gray-dark">《Angular Material 的设计之美》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/11150811.html" target="_blank"
-             class="text-gray-dark">《Ng-Matero：基于 Angular Material 搭建的中后台管理框架》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/10230272.html" target="_blank"
-             class="text-gray-dark">《你不需要 jQuery，但你需要一个 DOM 库》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7073601.html" target="_blank"
-             class="text-gray-dark">《如何编写轻量级 CSS 框架》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7746047.html" target="_blank"
-             class="text-gray-dark">《如何编写通用的 Helper Class》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7735883.html" target="_blank"
-             class="text-gray-dark">《如何使用 Bootstrap 搭建更合理的 HTML 结构》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7811451.html" target="_blank"
-             class="text-gray-dark">《使用 SVG 和 JS 创建一个由星形变心形的动画》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7397604.html" target="_blank"
-             class="text-gray-dark">《构建具有用户身份认证的 React + Flux 应用程序》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/7283460.html" target="_blank"
-             class="text-gray-dark">《给单元素艺术添加动画》</a>
-        </div>
-        <div class="box bg-gray-lightest">
-          ●
-          <a href="https://www.cnblogs.com/nzbin/p/6613674.html" target="_blank"
-             class="text-gray-dark">《CSS 预处理器中的循环》</a>
-        </div>
-      </div>
-    </section> -->
-
-    </main>
-
-    <footer class="footer text-center">
-      <p>
-        Created with ❤️ by <a href="https://github.com/nzbin" target="_blank">nzbin</a>.
-        Made with <a href="https://github.com/nzbin/snack" target="_blank">snack</a>.
-      </p>
-    </footer>
-
-  <script>
-    function myFunction() {
-      var selection = window.getSelection();
-      var range = document.createRange();
-      var copyText = document.getElementById("my-phone");
-      var tooltip = document.getElementById("myTooltip");
-
-      range.selectNodeContents(copyText);
-      selection.removeAllRanges();
-      selection.addRange(range);
-
-      selectedText = selection.toString();
-      // copyText.select();
-      // copyText.setSelectionRange(0, 99999);
-      // navigator.clipboard.writeText(copyText.innerHTML);
-      document.execCommand('copy')
-      
-      tooltip.innerHTML = "Copied: " + selectedText;
     }
-    
-    function outFunc() {
-      var tooltip = document.getElementById("myTooltip");
-      tooltip.innerHTML = "Copy to clipboard";
+
+    /* ===== Extra Small ===== */
+    @media screen and (max-width: 360px) {
+      .resume-wrapper {
+        padding: 16px 10px 28px;
+      }
+
+      .header .name {
+        font-size: 20px;
+      }
+
+      .header .info {
+        font-size: 11.5px;
+      }
+
+      .summary-item {
+        font-size: 13px;
+        padding: 7px 10px;
+      }
+
+      .exp-list li {
+        font-size: 13px;
+      }
     }
-    </script>
-  </body>
+  </style>
+</head>
+
+<body>
+  <div class="resume-wrapper">
+
+    <!-- ===== PAGE 1 ===== -->
+    <div class="page">
+
+      <!-- Header -->
+      <div class="header">
+        <div class="name">赵翘楚</div>
+        <div class="info">
+          <span>前端开发工程师</span>
+          <span class="sep">|</span>
+          <span>北京</span>
+          <span class="sep">|</span>
+          <span>c9cu@qq.com</span>
+          <span class="sep">|</span>
+          <span>https://github.com/zqcccc</span>
+        </div>
+      </div>
+
+      <!-- 个人总结 -->
+      <div class="section">
+        <div class="section-title">个人总结</div>
+        <div class="summary-item">
+          <span class="label">AI驱动与全栈工程效能:</span>
+          将AI工具(如Cursor、Claude 等)深度融入研发工作流，极大提升全栈交付效率。熟练运用 Node.js 与 Python 开发自动化脚本，持续优化 CI/CD 与日常研发工作流。
+        </div>
+        <div class="summary-item">
+          <span class="label">资深全栈交付能力:</span>
+          6年+开发经验，深度掌握 React/Next.js / TypeScript 生态，具备从前端交互到服务端架构的端到端独立交付能力。熟悉 PostgreSQL 数据库设计，能独立承担服务端 API 开发、数据自动化处理与高可用容器化部署。
+        </div>
+        <div class="summary-item">
+          <span class="label">跨平台与多端覆盖:</span>
+          熟练运用 React/Vue 技术栈，具备 React Native、小程序、VS Code 插件多端实战经验，可独立把控跨平台业务的技术选型与全栈落地。
+        </div>
+        <div class="summary-item">
+          <span class="label">独立架构与视觉落地:</span>
+          具备良好的组件抽象与 UI 实现能力，熟练使用 Tailwind CSS 等主流方案。具备像素级还原 Figma 设计稿的专业能力；在无完整设计稿的情况下，擅长运用 Stitch 等工具驱动 AI 生成设计稿，结合业务目标独立把控视觉细节并高保真推动落地，实现研发闭环。
+        </div>
+        <div class="summary-item">
+          <span class="label">DevOps与容器化交付:</span>
+          熟练运用 Docker 设计与维护多容器部署架构（Web / Worker 独立容器隔离），主导 CI/CD 流水线建设与自动化部署实践。结合 Node.js / Python 自动化脚本实现构建、部署全链路自动化，具备从开发环境到生产环境的高可用容器化交付与运维能力。
+        </div>
+      </div>
+
+      <!-- 工作经历 -->
+      <div class="section">
+        <div class="section-title">工作经历</div>
+
+        <!-- 蓝耘 -->
+        <div class="exp-group">
+          <div class="exp-header">
+            <span class="exp-company">蓝耘科技集团股份有限公司</span>
+            <span class="exp-date">2025.06 ‒ 至今</span>
+          </div>
+          <div class="exp-role">前端开发工程师</div>
+          <ul class="exp-list">
+            <li>前期参与基于 Bisheng 的 AI Agent 平台二次开发，负责品牌替换、登录页移动端适配、租户管理、数据广场（数据集浏览/检索/合成知识库）、MCP 工具集成及对话界面优化（思考过程展示、工具中断控制）</li>
+            <li>后期以 AI 辅助编程为核心开发方式，主导 AI 内容创作 SaaS 产品的前端核心研发，个人累计贡献代码变更量最多，涵盖多平台内容生成（微信公众号、小红书、抖音、视频脚本）、批量任务调度、富文本编辑器、AI 图像生成、品牌词库、知识库等核心模块</li>
+            <li>独立开发小红书小程序，完成内容从 Web 端到小程序侧的发布链路打通</li>
+            <li>负责多容器 Docker 部署架构设计与维护（Web / Worker 独立容器），推动产品从开发到生产交付的全流程落地</li>
+          </ul>
+        </div>
+
+        <!-- 小冰 -->
+        <div class="exp-group">
+          <div class="exp-header">
+            <span class="exp-company">北京小冰红棉科技有限公司（前微软小冰）</span>
+            <span class="exp-date">2022.01 ‒ 2025.03</span>
+          </div>
+          <div class="exp-role">前端开发工程师</div>
+          <ul class="exp-list">
+            <li><span class="sub-label">核心产品迭代：</span>主役参与 AI 社交产品（小冰X Eva / Chararu）的前端研发，覆盖小程序、H5、App 内嵌模块，累计服务用户超百万。</li>
+            <li><span class="sub-label">工程效能提升：</span>主导优化 Mac 平台打包插件，每次上线流程缩短 30%；编写自动化脚本实现多语言内容替换，国际化开发周期缩短 1 周。</li>
+            <li><span class="sub-label">跨平台能力：</span>独立完成 H5_XEva 的 Apple 登录 + IAP 支付集成及阿拉伯语等多语言国际化适配，支持海外市场拓展。</li>
+            <li><span class="sub-label">跨端协作：</span>设计与客户端团队共建公用功能接口，标准化后类似功能开发效率提升 1 天+。</li>
+            <li><span class="sub-label">Chrome 扩展探索：</span>内部技术探索项目，基于 Chrome Extension Manifest V3 + React 开发 AI 语音对话扩展，集成 Azure Cognitive Services SDK 实现实时 ASR 语音识别与 TTS 语音合成，结合 Live2D 虚拟人实时渲染，实现语音驱动的沉浸式 AI 社交体验。</li>
+          </ul>
+        </div>
+
+        <!-- 映客 -->
+        <div class="exp-group">
+          <div class="exp-header">
+            <span class="exp-company">北京蜜莱坞网络科技有限公司（映客）</span>
+            <span class="exp-date">2020.11 ‒ 2021.11</span>
+          </div>
+          <div class="exp-role">前端开发工程师</div>
+          <ul class="exp-list">
+            <li><span class="sub-label">高流量 H5 开发：</span>负责映客 APP 内核心 H5 功能页与活动页（100+ 页面）开发与维护，日 PV 总计超 80 万。</li>
+            <li><span class="sub-label">跨端移动开发：</span>参与基于 React Native 的跨平台移动应用开发，独立完成任务中心功能模块，实现 iOS/Android 双端功能复用。</li>
+            <li><span class="sub-label">架构与体验优化：</span>优化基于 CRA 的 React 项目架构与 Webpack 配置，Rebuild 效率提升 30%+；沉淀通用组件库，相似需求开发效率提升 1 人日以上。</li>
+            <li><span class="sub-label">TypeScript 布道者：</span>从零搭建并推广团队 TS 开发环境，重构核心工具方法，助力主要页面 JS 报错率降至 0.02% 以下。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== PAGE 2 ===== -->
+    <div class="page page-break">
+
+      <!-- 项目经历 -->
+      <div class="section">
+        <div class="section-title">项目经历</div>
+
+        <!-- 蓝耘星河 -->
+        <div class="exp-group">
+          <div class="proj-header">
+            <span class="proj-name">蓝耘星河 AI 内容创作 SaaS 平台</span>
+            <span class="proj-date">2025.09 ‒ 至今</span>
+          </div>
+          <div class="proj-link"><a href="https://xh.lanyun.net" target="_blank" rel="noopener">https://xh.lanyun.net</a></div>
+          <div class="tech-stack"><span class="ts-label">技术栈:</span> Next.js / Node.js / TypeScript / PostgreSQL / Redis / BullMQ / Drizzle ORM / Vercel AI SDK</div>
+          <ul class="exp-list">
+            <li>独立主导全平台 AI 内容创作系统的前后端端到端研发，为团队贡献量最多的成员。</li>
+            <li><span class="sub-label">前端与富交互:</span> 构建基于 Slate.js 的富文本编辑器，集成 AI 辅助改写、悬浮工具栏、图片本地上传与拖拽排序等功能。</li>
+            <li><span class="sub-label">服务端与模型调度:</span> 实现 LLM 多模型路由层，统一接入 Claude Sonnet、字节豆包Seed 等模型，支持流式输出、自动降级(Fallback)及多平台并行 Artifact 状态管理。</li>
+            <li><span class="sub-label">后端任务中心设计:</span> 开发批量内容生成系统，基于 BullMQ 父子任务队列调度，结合 Redis 心跳监测与崩溃自动恢复机制，保障大批量数据自动化任务的稳定执行。</li>
+          </ul>
+        </div>
+
+        <!-- 小冰X Eva -->
+        <div class="exp-group">
+          <div class="proj-header">
+            <span class="proj-name">小冰X Eva / Chararu AI 社交产品矩阵</span>
+            <span class="proj-date">2022.01 ‒ 2025.03</span>
+          </div>
+          <div class="proj-link"><a href="https://xeva.xiaoice.com/" target="_blank" rel="noopener">https://xeva.xiaoice.com/</a></div>
+          <div class="tech-stack"><span class="ts-label">技术栈：</span>Vue 3 / TypeScript / Uniapp / React</div>
+          <ul class="exp-list">
+            <li>核心贡献者（2年），主导 Chararu 多个核心模块：日记系统、游戏房间、私密房间、角色对话系统、通知与本地化配置</li>
+            <li>主导 4+ 小程序持续迭代与 10+ Web 页面开发，保障高并发下的用户体验</li>
+            <li>完成 H5_XEva 的 Apple 登录、IAP 支付及阿拉伯语等多语言国际化适配，支持海外市场拓展</li>
+          </ul>
+        </div>
+
+        <!-- 映客项目 -->
+        <div class="exp-group">
+          <div class="proj-header">
+            <span class="proj-name">映客 APP 端内 H5 & React Native 映客核心业务</span>
+            <span class="proj-date">2020.11 ‒ 2021.11</span>
+          </div>
+          <div class="tech-stack"><span class="ts-label">技术栈：</span>React / TypeScript / React Native / Redux / React Navigation</div>
+          <ul class="exp-list">
+            <li>独立负责 100+ 高并发 H5 功能页（日 PV 80 万+）的开发与维护</li>
+            <li>参与 React Native 跨平台项目（IKRNBundle），独立完成任务中心功能模块，实现 iOS/Android 双端复用</li>
+            <li>推动 TS 落地，核心页面 JS 报错率降至 0.02% 以下；优化 Webpack，Rebuild 效率提升 30%+</li>
+          </ul>
+        </div>
+
+        <!-- vscode-js-console -->
+        <div class="exp-group">
+          <div class="proj-header">
+            <span class="proj-name">vscode-js-console</span>
+            <span class="proj-date">个人项目</span>
+          </div>
+          <div class="proj-link"><a href="https://marketplace.visualstudio.com/items?itemName=zqcccc.vscode-js-console" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=zqcccc.vscode-js-console</a></div>
+          <ul class="exp-list">
+            <li>个人独立开发并发布至 VS Code Marketplace，累计下载量 746+</li>
+            <li>提供快速插入/删除 console.log、console.error 等调试语句的命令与快捷键，优化日常前端调试工作流</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 技术栈 -->
+      <div class="section">
+        <div class="section-title">技术栈</div>
+        <div class="skills-grid">
+          <div class="skill-row"><span class="sk-label">前端框架：</span>React 18 / Next.js / Vue 3 / Uniapp</div>
+          <div class="skill-row"><span class="sk-label">跨端开发：</span>React Native / 微信小程序 / 抖音小程序 / Chrome 扩展 / VS Code 插件</div>
+          <div class="skill-row"><span class="sk-label">工程化：</span>TypeScript / Webpack 5 / Vite / Tailwind CSS / Docker / Playwright</div>
+          <div class="skill-row"><span class="sk-label">AI 集成：</span>Vercel AI SDK / LLM 多模型路由 / Azure Cognitive Services</div>
+          <div class="skill-row full"><span class="sk-label">后端/数据：</span>Node.js / PostgreSQL / Redis / Drizzle ORM / BullMQ</div>
+        </div>
+      </div>
+
+      <!-- 教育经历 -->
+      <div class="section">
+        <div class="section-title">教育经历</div>
+        <div class="edu-header">
+          <span class="edu-school">武昌首义学院</span>
+          <span class="edu-date">2015 ‒ 2019</span>
+        </div>
+        <div class="edu-detail">统招全日制本科</div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
 </html>
