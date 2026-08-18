@@ -85,6 +85,16 @@
       color: #999;
     }
 
+    .header .info a {
+      margin: 0 6px;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .header .info a:hover {
+      text-decoration: underline;
+    }
+
     /* ===== Section ===== */
     .section {
       margin-top: 12px;
@@ -545,11 +555,6 @@
         font-size: 13px;
       }
     }
-
-    .reset-a {
-      text-decoration: none;
-      color: var(--color-body);
-    }
   </style>
 </head>
 
@@ -569,8 +574,7 @@
           <span class="sep">|</span>
           <span>c9cu@qq.com</span>
           <span class="sep">|</span>
-          <a href="https://github.com/zqcccc"
-              target="_blank" class="reset-a">https://github.com/zqcccc</a>
+          <a href="https://github.com/zqcccc" target="_blank" rel="noopener">https://github.com/zqcccc</a>
         </div>
       </div>
 
@@ -595,7 +599,7 @@
         </div>
         <div class="summary-item">
           <span class="label">DevOps与容器化交付:</span>
-          熟练运用 Docker 设计与维护多容器部署架构（Web / Worker 独立容器隔离），主导 CI/CD 流水线建设与自动化部署实践。结合 Node.js / Python 自动化脚本实现构建、部署全链路自动化，具备从开发环境到生产环境的高可用容器化交付与运维能力。
+          熟练运用 Docker 设计与维护多容器部署架构（Web / Worker 独立容器隔离），主导 CI/CD 流水线建设与自动化部署实践。结合 Node.js / Python 自动化脚本实现构建、测试、部署全链路自动化，具备从开发环境到生产环境的高可用容器化交付与运维能力。
         </div>
       </div>
 
@@ -607,12 +611,12 @@
         <div class="exp-group">
           <div class="exp-header">
             <span class="exp-company">蓝耘科技集团股份有限公司</span>
-            <span class="exp-date">2025.06 ‒ 至今</span>
+            <span class="exp-date">2025.06 ‒ 2026.06</span>
           </div>
           <div class="exp-role">前端开发工程师</div>
           <ul class="exp-list">
             <li>前期参与基于 Bisheng 的 AI Agent 平台二次开发，负责品牌替换、登录页移动端适配、租户管理、数据广场（数据集浏览/检索/合成知识库）、MCP 工具集成及对话界面优化（思考过程展示、工具中断控制）</li>
-            <li>后期以 AI 辅助编程为核心开发方式，主导 AI 内容创作 SaaS 产品的前端核心研发，个人累计贡献代码变更量最多，涵盖多平台内容生成（微信公众号、小红书、抖音、视频脚本）、批量任务调度、富文本编辑器、AI 图像生成、品牌词库、知识库等核心模块</li>
+            <li>后期以 AI 辅助编程为核心开发方式，主导 AI 内容创作 SaaS 产品的前端核心研发，个人累计贡献代码变更量 22 万行+，涵盖多平台内容生成（微信公众号、小红书、抖音、视频脚本）、批量任务调度、富文本编辑器、AI 图像生成、品牌词库、知识库等核心模块</li>
             <li>独立开发小红书小程序，完成内容从 Web 端到小程序侧的发布链路打通</li>
             <li>负责多容器 Docker 部署架构设计与维护（Web / Worker 独立容器），推动产品从开发到生产交付的全流程落地</li>
           </ul>
@@ -621,13 +625,13 @@
         <!-- 小冰 -->
         <div class="exp-group">
           <div class="exp-header">
-            <span class="exp-company">北京小冰红棉科技有限公司（前微软小冰）</span>
+            <span class="exp-company">北京小冰红棉科技有限公司</span>
             <span class="exp-date">2022.01 ‒ 2025.03</span>
           </div>
           <div class="exp-role">前端开发工程师</div>
           <ul class="exp-list">
-            <li><span class="sub-label">核心产品迭代：</span>主役参与 AI 社交产品（小冰X Eva / Chararu）的前端研发，覆盖小程序、H5、App 内嵌模块，累计服务用户超百万。</li>
-            <li><span class="sub-label">工程效能提升：</span>主导优化 Mac 平台打包插件，每次上线流程缩短 30%；编写自动化脚本实现多语言内容替换，国际化开发周期缩短 1 周。</li>
+            <li><span class="sub-label">核心产品迭代：</span>主力参与 AI 社交产品（小冰X Eva / Chararu）的前端研发，覆盖小程序、H5、App 内嵌模块，累计服务用户超百万。</li>
+            <li><span class="sub-label">工程效能提升：</span>主导优化 Mac 平台打包插件，每次上线流程缩短 30%；为 Chararu 做国际化时，使用 Babel 解析源码 AST、批量提取并替换代码中的日文文案，编写自动化脚本实现多语言内容替换，国际化开发周期缩短 1 周。</li>
             <li><span class="sub-label">跨平台能力：</span>独立完成 H5_XEva 的 Apple 登录 + IAP 支付集成及阿拉伯语等多语言国际化适配，支持海外市场拓展。</li>
             <li><span class="sub-label">跨端协作：</span>设计与客户端团队共建公用功能接口，标准化后类似功能开发效率提升 1 天+。</li>
             <li><span class="sub-label">Chrome 扩展探索：</span>内部技术探索项目，基于 Chrome Extension Manifest V3 + React 开发 AI 语音对话扩展，集成 Azure Cognitive Services SDK 实现实时 ASR 语音识别与 TTS 语音合成，结合 Live2D 虚拟人实时渲染，实现语音驱动的沉浸式 AI 社交体验。</li>
@@ -659,11 +663,26 @@
       <div class="section">
         <div class="section-title">项目经历</div>
 
+        <!-- 滑雪小程序（新增，最新） -->
+        <div class="exp-group">
+          <div class="proj-header">
+            <span class="proj-name">滑雪小程序（微信小程序 + Golang 后端）</span>
+            <span class="proj-date">2026.06 ‒ 至今</span>
+          </div>
+          <div class="proj-link"><span>开发中（未上线）· 个人项目</span></div>
+          <div class="tech-stack"><span class="ts-label">技术栈：</span>微信小程序（WXML / WXSS / TypeScript）· Golang（后端 API 服务）</div>
+          <ul class="exp-list">
+            <li>自主立项并独立开发中的滑雪场景微信小程序，独立负责从 0 到 1 的产品定义、前端（微信小程序）与后端（Golang）全栈开发。</li>
+            <li>前端基于微信小程序原生框架实现交互与页面；后端采用 Golang 提供 API 服务，独立把控前后端技术选型、接口设计与数据模型。</li>
+            <li>当前处于 MVP 开发阶段，聚焦核心业务流程打通与可用性验证。</li>
+          </ul>
+        </div>
+
         <!-- 蓝耘星河 -->
         <div class="exp-group">
           <div class="proj-header">
             <span class="proj-name">蓝耘星河 AI 内容创作 SaaS 平台</span>
-            <span class="proj-date">2025.09 ‒ 至今</span>
+            <span class="proj-date">2025.09 ‒ 2026.06</span>
           </div>
           <div class="proj-link"><a href="https://xh.lanyun.net" target="_blank" rel="noopener">https://xh.lanyun.net</a></div>
           <div class="tech-stack"><span class="ts-label">技术栈:</span> Next.js / Node.js / TypeScript / PostgreSQL / Redis / BullMQ / Drizzle ORM / Vercel AI SDK</div>
@@ -707,12 +726,12 @@
         <!-- vscode-js-console -->
         <div class="exp-group">
           <div class="proj-header">
-            <span class="proj-name">vscode-js-console</span>
+            <span class="proj-name">vscode-js-console（VS Code 扩展）</span>
             <span class="proj-date">个人项目</span>
           </div>
           <div class="proj-link"><a href="https://marketplace.visualstudio.com/items?itemName=zqcccc.vscode-js-console" target="_blank" rel="noopener">https://marketplace.visualstudio.com/items?itemName=zqcccc.vscode-js-console</a></div>
           <ul class="exp-list">
-            <li>个人独立开发并发布至 VS Code Marketplace，累计下载量 746+</li>
+            <li>个人独立开发并发布至 VS Code Marketplace 的 VS Code 扩展插件，累计下载量 746+</li>
             <li>提供快速插入/删除 console.log、console.error 等调试语句的命令与快捷键，优化日常前端调试工作流</li>
           </ul>
         </div>
@@ -723,10 +742,10 @@
         <div class="section-title">技术栈</div>
         <div class="skills-grid">
           <div class="skill-row"><span class="sk-label">前端框架：</span>React 18 / Next.js / Vue 3 / Uniapp</div>
-          <div class="skill-row"><span class="sk-label">跨端开发：</span>React Native / 微信小程序 / 抖音小程序 / Chrome 扩展 / VS Code 插件</div>
+          <div class="skill-row"><span class="sk-label">跨端开发：</span>React Native / 微信小程序 / 抖音小程序 / Chrome 扩展 / VS Code 扩展</div>
           <div class="skill-row"><span class="sk-label">工程化：</span>TypeScript / Webpack 5 / Vite / Tailwind CSS / Docker / Playwright</div>
-          <div class="skill-row"><span class="sk-label">AI 集成：</span>Vercel AI SDK / LLM 多模型路由 / Azure Cognitive Services</div>
-          <div class="skill-row full"><span class="sk-label">后端/数据：</span>Node.js / PostgreSQL / Redis / Drizzle ORM / BullMQ</div>
+          <div class="skill-row"><span class="sk-label">后端/数据：</span>Node.js / Golang / PostgreSQL / Redis / Drizzle ORM / BullMQ</div>
+          <div class="skill-row full"><span class="sk-label">AI 工具链：</span>Cursor / Claude（AI 辅助编程）· Vercel AI SDK / LLM 多模型路由 / Azure Cognitive Services</div>
         </div>
       </div>
 
